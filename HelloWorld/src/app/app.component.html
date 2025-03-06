@@ -187,7 +187,7 @@
   <div class="content">
     <div class="left-side">
       <h1>Hello, {{ title }}</h1>
-      <img [src]="imgUrl" alt="BridgeLabz logo">
+      <img [src]="imgUrl" (click)="onClick($event)"  alt="BridgeLabz logo">
     </div>
   </div>
 </main>
