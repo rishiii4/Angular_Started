@@ -104,17 +104,34 @@
     margin: 0 auto;
     width: 25%;
   }
+  .error-output{
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: re;
+  }
+
+  .userInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .userInput span{
+    color: red;
+  }
  
 </style>
 
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <h1>Hello, {{ userName }} from BridgeLabz</h1>
+      <h1>Hello {{ userName }} from BridgeLabz</h1>
       <img [src]="imageUrl" (click)="onClick($event)" alt="BridgeLabz logo">
     </div>
     <div class="userInput">
-      <input [ngModel]="userName" (ngModelChange)="userName = $event" placeholder="Enter your name">
+      <input [ngModel]="userName" (ngModelChange)="userName = $event" placeholder="Enter your name" (input)="onInput(userName)" />
+      <span class = error-output>{{this.nameError}}</span>
     </div>
   </div>
 </main>

@@ -16,9 +16,22 @@ export class AppComponent {
 
   url = "http://localhost:4200/";
   userName: string = "";
+  nameError: string = "";
 
   onClick($event: any) {
     console.log("Button is clicked", $event);
     window.open(this.url, "_blank");
   }
+
+  onInput($event: any) {
+    console.log("Change Event Occurred!", this.userName); // Full name print karega
+    const nameRegex = RegExp('^[A-Z][a-zA-Z\\s]{2,}$');
+  
+    if (this.userName && nameRegex.test(this.userName)) {
+      this.nameError = "";
+    } else {
+      this.nameError = "Name is Incorrect!";
+    }
+  }
+  
 }
